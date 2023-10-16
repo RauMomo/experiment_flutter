@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_slicing/extension/constant.dart';
-import 'package:flutter_slicing/extension/models.dart';
 import 'package:flutter_slicing/extension/on_context.dart';
 import 'package:flutter_slicing/view/add_page.dart';
 import 'package:flutter_slicing/view/favorite_page.dart';
 import 'package:flutter_slicing/view/home_page.dart';
 import 'package:flutter_slicing/view/profile_page.dart';
-import 'package:flutter_slicing/widget/app_chip.dart';
 import 'package:flutter_slicing/widget/app_icon_button.dart';
 import 'package:flutter_slicing/widget/app_search_bar.dart';
+import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 
 class SearchPage extends StatelessWidget {
   const SearchPage({super.key});
@@ -23,56 +22,88 @@ class SearchPage extends StatelessWidget {
             children: [
               const AppSearchBar(),
               const SizedBox(height: 16),
-              Wrap(
-                runSpacing: 8,
-                spacing: 8,
-                children: List.generate(
-                  searchChip.length,
-                  (x) => AppChip(
-                    text: searchChip[x],
-                  ),
-                ),
-              ),
-              const SizedBox(height: 8),
-              Image.asset(image7),
-              const SizedBox(height: 8),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                crossAxisAlignment: CrossAxisAlignment.start,
+              // Wrap(
+              //   runSpacing: 8,
+              //   spacing: 8,
+              //   children: List.generate(
+              //     searchChip.length,
+              //     (x) => AppChip(
+              //       text: searchChip[x],
+              //     ),
+              //   ),
+              // ),
+              // const SizedBox(height: 8),
+              // Image.asset(image7),
+              // const SizedBox(height: 8),
+              StaggeredGrid.count(
+                crossAxisCount: 4,
+                mainAxisSpacing: 4,
+                crossAxisSpacing: 4,
                 children: [
-                  Column(
-                    children: [
-                      Image.asset(
-                        image8,
-                        scale: 1.8,
-                      ),
-                      const SizedBox(height: 8),
-                      Image.asset(
-                        image10,
-                        scale: 1.8,
-                      ),
-                    ],
+                  StaggeredGridTile.count(
+                    crossAxisCellCount: 2,
+                    mainAxisCellCount: 2,
+                    child: Image.asset(image8),
                   ),
-                  Column(
-                    children: [
-                      Image.asset(
-                        image9,
-                        scale: 1.8,
-                      ),
-                      const SizedBox(height: 8),
-                      Image.asset(
-                        image18,
-                        scale: 4,
-                      ),
-                      const SizedBox(height: 8),
-                      Image.asset(
-                        image11,
-                        scale: 1.8,
-                      ),
-                    ],
-                  )
+                  StaggeredGridTile.count(
+                    crossAxisCellCount: 2,
+                    mainAxisCellCount: 2,
+                    child: Image.asset(image10),
+                  ),
+                  StaggeredGridTile.count(
+                    crossAxisCellCount: 2,
+                    mainAxisCellCount: 2,
+                    child: Image.asset(image9),
+                  ),
+                  StaggeredGridTile.count(
+                    crossAxisCellCount: 2,
+                    mainAxisCellCount: 2,
+                    child: Image.asset(image18),
+                  ),
+                  StaggeredGridTile.count(
+                    crossAxisCellCount: 2,
+                    mainAxisCellCount: 2,
+                    child: Image.asset(image11),
+                  ),
                 ],
               ),
+              // Row(
+              //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              //   crossAxisAlignment: CrossAxisAlignment.start,
+              //   children: [
+              //     Column(
+              //       children: [
+              //         Image.asset(
+              //           image8,
+              //           scale: 1.8,
+              //         ),
+              //         const SizedBox(height: 8),
+              //         Image.asset(
+              //           image10,
+              //           scale: 1.8,
+              //         ),
+              //       ],
+              //     ),
+              //     Column(
+              //       children: [
+              //         Image.asset(
+              //           image9,
+              //           scale: 1.8,
+              //         ),
+              //         const SizedBox(height: 8),
+              //         Image.asset(
+              //           image18,
+              //           scale: 4,
+              //         ),
+              //         const SizedBox(height: 8),
+              //         Image.asset(
+              //           image11,
+              //           scale: 1.8,
+              //         ),
+              //       ],
+              //     )
+              //   ],
+              // ),
             ],
           ),
         ),
